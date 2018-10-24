@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta author="liuliang">
+    <meta descript="">
+    <title>Title</title>
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="box">
+       <aaa>
+
+       </aaa>
+
+    </div>
+    <template id="aaa">
+        {{msg}}
+        <h3>hello,My honey and ->{{msg}}</h3>
+        <bbb :m="msg">{{msg}}</bbb>
+    </template>
+    <script>
+        var vm = new Vue({
+            el:"#box",
+            data:{
+                msg:"boy"
+            },
+            components:{
+                    'aaa':{
+                        template:"#aaa",
+                        data(){
+                            return {
+                                msg:"我是父组件的数据"
+                            }
+                        },
+                        components:{
+                            'bbb':{
+                                props:{
+                                    'm':String
+                                },
+                                template:"<h3>welcome 我是aaa的子组件BBB-->{{m}}</h3>"
+                            }
+                        }
+                    },
+
+            }
+
+        });
+
+    </script>
+</body>
+</html>

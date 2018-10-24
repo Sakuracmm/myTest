@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta author="liuliang">
+    <meta descript="">
+    <title>Title</title>
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="box">
+       <aaa>
+            <ul>
+                <li>111</li>
+                <li>222</li>
+                <li>333</li>
+                <li>444</li>
+            </ul>
+       </aaa>
+        <hr>
+        <aaa>
+
+        </aaa>
+        <template id="aaa">
+            <h1>xxxxx</h1>
+            <slot>这是默认的情况</slot>
+            <p>wlecome vue</p>
+        </template>
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#box",
+            data:{
+                msg:"boy"
+            },
+            components:{
+                  'aaa':{
+                      template:"#aaa"
+                  }
+            }
+
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta author="liuliang">
+    <meta descript="">
+    <title>Title</title>
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="box">
+       <aaa>
+
+       </aaa>
+
+    </div>
+    <template id="aaa">
+        {{msg}}
+        <h3>hello,My honey and ->{{msg}}</h3>
+        <bbb :m="msg" :my-pwd="da" :num="num">{{msg}}</bbb>
+    </template>
+    <script>
+        var vm = new Vue({
+            el:"#box",
+            data:{
+                msg:"boy"
+            },
+            components:{
+                    'aaa':{
+                        template:"#aaa",
+                        data(){
+                            return {
+                                msg:"我是父组件的数据",
+                                da:"密码是13118112506",
+                                num:17
+                            }
+                        },
+                        components:{
+                            'bbb':{
+                                // props:{
+                                //     'm':String,
+                                //     'myPwd':String,
+                                //     'num':Number
+                                // },
+                                props:['m','myPwd','num'],
+                                template:"<h3>welcome 我是aaa的子组件BBB-->{{m}}+{{myPwd}}+{{num}}</h3>"
+                            }
+                        }
+                    },
+
+            }
+
+        });
+
+    </script>
+</body>
+</html>

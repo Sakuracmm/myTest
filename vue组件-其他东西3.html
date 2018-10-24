@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta author="liuliang">
+    <meta descript="">
+    <title>document</title>
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+
+
+
+</head>
+<body>
+    <div id="box">
+        <aaa></aaa>
+    </div>
+    <script>
+        var Aaa= Vue.extend({
+            data(){
+               return {
+                    msg:"小笨笨啊"
+               };
+            },
+            template:'<h3 @click=\'change\'>{{msg}}</h3>',
+            methods:{
+                change(){
+                    this.msg="hello 小笨笨！"
+                }
+            }
+        });
+
+        Vue.component('aaa',Aaa);
+
+        var vm = new Vue({
+            el:"#box",
+            data:{
+                bSign:true,
+            }
+        });
+
+    </script>
+</body>
+</html>

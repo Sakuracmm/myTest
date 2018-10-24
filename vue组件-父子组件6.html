@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta author="liuliang">
+    <meta descript="">
+    <title>Title</title>
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="box">
+       <aaa>
+
+       </aaa>
+
+    </div>
+    <template id="aaa">
+        <span>我是父级 -> {{msg}}</span>
+        <h3>hello,My honey and ->{{msg}}</h3>
+        <input type="button" value="按钮" />
+        <bbb @children-msg="get">{{msg}}</bbb>
+    </template>
+    <template id="bbb">
+        <h3>我是子组件-></h3>
+        <input type="button" value="send" @click="send">
+    </template>
+    <script>
+        var vm = new Vue({
+            el:"#box",
+            data:{
+                msg:"boy"
+            },
+            components:{
+                    'aaa':{
+                        template:"#aaa",
+                        data(){
+                            return {
+                                msg:"我是父组件的数据",
+                                da:"密码是13118112506",
+                                num:17
+                            }
+                        }, components:{
+                            'bbb':{
+                                data(){
+                                    return {
+                                        a:"我是子组件的数据"
+                                    }
+                                },
+                                template:"#bbb",
+                                methods:{
+                                    send(){
+                                        this.$emit("children-msg",this.a);
+                                    }
+                                }
+                            }
+                        },
+                        methods:{
+                            get(msg){
+                                this.msg = msg;
+                            }
+                        }
+
+                    },
+
+            }
+
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta author="liuliang">
+    <meta descript="">
+    <title>Title</title>
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <my-aaa></my-aaa>
+    </div>
+    <template id="aaa">
+        <h3 @click="change">hello,My honey and {{msg}}</h3>
+        <ul>
+            <li v-for="item in arr">{{item}}</li>
+        </ul>
+    </template>
+
+    <script>
+        var vm = new Vue({
+            el:"#box",
+            components:{
+                'my-aaa':{
+                    template:'#aaa',
+                    data(){
+                        return{
+                            msg:"welcome vue",
+                            color:'red',
+                            arr:['apple','orange','egg']
+                        }
+                    },
+                    methods:{
+                        change(){
+                            this.msg='yellow'
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

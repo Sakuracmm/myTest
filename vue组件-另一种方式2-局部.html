@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta author="liuliang">
+    <meta descript="">
+    <title>Title</title>
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <my-aaa></my-aaa>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#box",
+            components:{
+                'my-aaa':{
+                    template:'<h3 @click="change">hello,My honey and {{msg}}</h3>',
+                    data(){
+                        return{
+                            msg:"welcome vue",
+                            color:'red'
+                        }
+                    },
+                    methods:{
+                        change(){
+                            this.msg='yellow'
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
